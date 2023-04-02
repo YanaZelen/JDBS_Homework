@@ -1,5 +1,8 @@
 package org.example;
 
+import org.example.dao.CarDaoHiber;
+import org.example.dao.CarsDaoJDBC;
+
 /**
  * Hello world!
  *
@@ -8,7 +11,7 @@ public class App
 {
     public static void main( String[] args )
     {
-        CarsDao userDao = new CarsDao();
+        CarDaoHiber userDao = new CarDaoHiber();
         userDao.dropCarsTable();
         userDao.createCarsTable();
         userDao.addCar("Peugeot", "308", 185, 2018);
@@ -18,11 +21,8 @@ public class App
         userDao.addCar("Toyota", "Land Cruiser", 103, 2001);
         userDao.addCar("Toyota", "Camry ", 222, 2016);
         System.out.println(userDao.getAllCars());
-        userDao.deleteCar(3);
+        userDao.deleteCarById(3);
         System.out.println(userDao.getAllCars());
-        CarsDTO userDTO = userDao.getCarById(1);
-        System.out.println("Попытка найти пользователя с id " + 1);
-        System.out.println(userDTO);
         userDao.cleanCarsTable();
         System.out.println(userDao.getAllCars());
         userDao.cleanCarsTable();
