@@ -5,15 +5,11 @@ import org.example.entity.Car;
 import java.util.List;
 
 public interface CarDao {
-    void createCarsTable();
 
-    void dropCarsTable();
+    void saveCar(String brand, String model, int carNumber, int carAge);
 
-    void addCar(String brand, String model, int carNumber, int carAge);
-
-    void deleteCarById(long id);
+    Car getCarById(long id);
 
     List<Car> getAllCars();
 
-    void cleanCarsTable();
 }
